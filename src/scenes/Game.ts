@@ -27,6 +27,7 @@ export class Game extends Phaser.Scene {
 
     create() {
         this.sound.play('gamestartup')
+
         this.camera = this.cameras.main;
         this.camera.setBounds(0, 0, 2048, 1500);
 
@@ -35,7 +36,7 @@ export class Game extends Phaser.Scene {
         this.background.setScrollFactor(0);
 
         // Set the world bounds so the player can't go below y = 450
-        this.physics.world.setBounds(0, 0, 2100, 1000);
+        this.physics.world.setBounds(-50, 0, 2020, 1000);
 
         // Create Player 1 (using arrow keys for movement)
         this.player1 = new Player({
@@ -85,72 +86,72 @@ export class Game extends Phaser.Scene {
         this.physics.add.collider(this.player2, this.bullets, this.handleBulletCollision, undefined, this);
     
         // create text displays for controls to player 1 and player 2
-        this.add.text(10, 40, 'Player 1 Controls:', {
+        this.add.text(10, 140, 'Player 1 Controls:', {
             fontFamily: 'Arial Black',
             fontSize: 20,
-            color: '#ffffff',
+            color: '#758cff',
             stroke: '#000000',
-            strokeThickness: 3
+            strokeThickness: 10
         }).setScrollFactor(0);
 
-        this.add.text(10, 70, 'Move: Arrow Keys', {
+        this.add.text(10, 170, 'Move: Arrow Keys', {
             fontFamily: 'Arial Black',
             fontSize: 20,
-            color: '#ffffff',
+            color: '#758cff',
             stroke: '#000000',
-            strokeThickness: 3
+            strokeThickness: 10
         }).setScrollFactor(0);
 
-        this.add.text(10, 100, 'Shoot: Space', {
+        this.add.text(10, 200, 'Shoot: Space', {
             fontFamily: 'Arial Black',
             fontSize: 20,
-            color: '#ffffff',
+            color: '#758cff',
             stroke: '#000000',
-            strokeThickness: 3
+            strokeThickness: 10
         }).setScrollFactor(0);
 
-        this.add.text(1700, 40, 'Player 2 Controls:', {
+        this.add.text(1700, 140, 'Player 2 Controls:', {
             fontFamily: 'Arial Black',
             fontSize: 20,
-            color: '#ffffff',
+            color: '#fa7b48',
             stroke: '#000000',
-            strokeThickness: 3
+            strokeThickness: 10
         }).setScrollFactor(0);
 
-        this.add.text(1700, 70, 'Move: WASD', {
+        this.add.text(1700, 170, 'Move: WASD', {
             fontFamily: 'Arial Black',
             fontSize: 20,
-            color: '#ffffff',
+            color: '#fa7b48',
             stroke: '#000000',
-            strokeThickness: 3
+            strokeThickness: 10
         }).setScrollFactor(0);
 
-        this.add.text(1700, 100, 'Shoot: E', {
+        this.add.text(1700, 200, 'Shoot: E', {
             fontFamily: 'Arial Black',
             fontSize: 20,
-            color: '#ffffff',
+            color: '#fa7b48',
             stroke: '#000000',
-            strokeThickness: 3
+            strokeThickness: 10
         }).setScrollFactor(0);
 
 
         // Create text displays for health and score
         this.player1HealthText = this.add.text(10, 10, 'Player 1 HP: ' + (this.player1?.health ?? 0), {
-            fontFamily: 'Arial Black',
-            fontSize: 20,
-            color: '#ffffff',
-            stroke: '#000000',
-            strokeThickness: 3
+            fontFamily: 'Impact, fantasy',
+            fontSize: 50,
+            color: '#00ff00',
+            stroke: '#0045ad',
+            strokeThickness: 10,
         }).setScrollFactor(0);
 
 
 
-        this.player2HealthText = this.add.text(1700, 10, 'Player 2 HP: ' + (this.player2?.health ?? 0), {
-            fontFamily: 'Arial Black',
-            fontSize: 20,
-            color: '#ffffff',
-            stroke: '#000000',
-            strokeThickness: 3
+        this.player2HealthText = this.add.text(1450, 10, 'Player 2 HP: ' + (this.player2?.health ?? 0), {
+            fontFamily: 'Impact, fantasy',
+            fontSize: 50,
+            color: '#00ff00',
+            stroke: '#631c00',
+            strokeThickness: 10,
         }).setScrollFactor(0);
 
 
